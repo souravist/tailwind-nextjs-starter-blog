@@ -1,0 +1,20 @@
+
+backend:
+  name: git-gateway
+  branch: main # Your main branch
+
+media_folder: "public/images/uploads" # Where media files (like images) will be stored
+public_folder: "/images/uploads" # Public path to the media files
+
+collections:
+  - name: "blog" # Name of the collection
+    label: "Blog"
+    folder: "data/blog" # Location of your Markdown files
+    create: true
+    slug: "{{slug}}" # Use the post title to generate the file name
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "category", label: "Category", widget: "string" }
+      - { name: "summary", label: "Summary", widget: "text" }
+      - { name: "body", label: "Body", widget: "markdown" }
